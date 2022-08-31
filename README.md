@@ -80,7 +80,7 @@ console.log(v.validate(p, schema));
 ```
 ### Example for Array schema
 
-```json
+```javascript
 var arraySchema = {
         "type": "array",
         "items": {
