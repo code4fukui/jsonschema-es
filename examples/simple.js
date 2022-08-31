@@ -1,7 +1,4 @@
-'use strict';
-
-var util = require('util');
-var Validator = require('jsonschema').Validator;
+import { Validator } from "../lib/validator.js";
 
 var v = new Validator();
 var instance = 4;

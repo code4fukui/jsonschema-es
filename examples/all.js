@@ -1,6 +1,4 @@
-'use strict';
-
-var Validator = require('jsonschema').Validator;
+import { Validator } from "../lib/validator.js";
 
 // This schema includes all of the possible validation tests.
 var schema = {

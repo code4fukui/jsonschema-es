@@ -1,7 +1,5 @@
-'use strict';
-
-var jsonschema = require('..');
-var validator = new jsonschema.Validator;
+import { Validator } from "../lib/validator.js";
+const validator = new Validator();
 
 function preValidateProperty(object, key, schema, options, ctx) {
   var value = object[key];

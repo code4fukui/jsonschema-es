@@ -1,6 +1,4 @@
-'use strict';
-
-var validate = require('jsonschema').validate;
+import { validate } from "../lib/index.js";
 
 var instance = 4;
 var schema = {"type": "number"};

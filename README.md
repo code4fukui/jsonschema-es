@@ -1,6 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/tdegrunt/jsonschema.svg)](http://travis-ci.org/tdegrunt/jsonschema)
-
-# jsonschema
+# jsonschema-es
 
 [JSON schema](http://json-schema.org/) validator, which is designed to be fast and simple to use. JSON Schema versions through draft-07 are fully supported.
 
@@ -19,7 +17,7 @@ Please include a test which shows why the code fails.
 Simple object validation using JSON schemas.
 
 ```javascript
-var Validator = require('jsonschema').Validator;
+import { Validator } from "https://code4fukui.github.io/jsonschema/lib/validator.js";
 var v = new Validator();
 var instance = 4;
 var schema = {"type": "number"};
@@ -29,14 +27,14 @@ console.log(v.validate(instance, schema));
 ### Even simpler
 
 ```javascript
-var validate = require('jsonschema').validate;
+import { validate } from "./index.js";
 console.log(validate(4, {"type": "number"}));
 ```
 
 ### Complex example, with split schemas and references
 
 ```javascript
-var Validator = require('jsonschema').Validator;
+import { Validator } from "./validator.js";
 var v = new Validator();
 
 // Address, to be embedded on Person
