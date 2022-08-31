@@ -1,7 +1,0 @@
-# Node.js dependencies
-node_modules
-npm-debug.log
-
-# stryker output files
-.stryker-tmp
-reports/
