@@ -17,7 +17,7 @@ Please include a test which shows why the code fails.
 Simple object validation using JSON schemas.
 
 ```javascript
-import { Validator } from "https://code4fukui.github.io/jsonschema/lib/validator.js";
+import { Validator } from "https://code4fukui.github.io/jsonschema-es/lib/validator.js";
 var v = new Validator();
 var instance = 4;
 var schema = {"type": "number"};
