@@ -48,8 +48,6 @@ export declare class SchemaError extends Error{
 
 export declare function validate(instance: any, schema: any, options?: Options): ValidatorResult
 
-export declare function validateAsync(instance: any, schema: any, options?: Options): Promise<ValidatorResult>
-
 export interface Schema {
     $id?: string
     id?: string
