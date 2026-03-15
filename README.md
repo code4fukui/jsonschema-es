@@ -1,5 +1,7 @@
 # jsonschema-es
 
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+
 [JSON schema](http://json-schema.org/) validator, which is designed to be fast and simple to use. JSON Schema versions through draft-07 are fully supported.
 
 ## Contributing & bugs
