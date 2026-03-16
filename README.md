@@ -4,11 +4,11 @@
 
 [JSON schema](http://json-schema.org/) validator, which is designed to be fast and simple to use. JSON Schema versions through draft-07 are fully supported.
 
-## Contributing & bugs
+## Contributing & Bugs
 
 Please fork the repository, make the changes in your fork and include tests. Once you're done making changes, send in a pull request.
 
-### Bug reports
+### Bug Reports
 
 Please include a test which shows why the code fails.
 
@@ -26,14 +26,14 @@ var schema = {"type": "number"};
 console.log(v.validate(instance, schema));
 ```
 
-### Even simpler
+### Even Simpler
 
 ```javascript
 import { validate } from "./index.js";
 console.log(validate(4, {"type": "number"}));
 ```
 
-### Complex example, with split schemas and references
+### Complex Example, with Split Schemas and References
 
 ```javascript
 import { Validator } from "./validator.js";
@@ -80,7 +80,8 @@ var p = {
 v.addSchema(addressSchema, '/SimpleAddress');
 console.log(v.validate(p, schema));
 ```
-### Example for Array schema
+
+### Example for Array Schema
 
 ```javascript
 var arraySchema = {
@@ -94,6 +95,7 @@ var arraySchema = {
         }
     }
 ```
+
 For a comprehensive, annotated example illustrating all possible validation options, see [examples/all.js](./examples/all.js)
 
 ## Features
@@ -124,10 +126,9 @@ res.valid // false
 
 ### Formats
 
-#### Disabling the format keyword.
+#### Disabling the Format Keyword
 
-You may disable format validation by providing `disableFormat: true` to the validator
-options.
+You may disable format validation by providing `disableFormat: true` to the validator options.
 
 #### String Formats
 
@@ -135,15 +136,10 @@ All formats are supported, phone numbers are expected to follow the [E.123](http
 
 #### Custom Formats
 
-You may add your own custom format functions.  Format functions accept the input
-being validated and return a boolean value.  If the returned value is `true`, then
-validation succeeds.  If the returned value is `false`, then validation fails.
+You may add your own custom format functions. Format functions accept the input being validated and return a boolean value. If the returned value is `true`, then validation succeeds. If the returned value is `false`, then validation fails.
 
-* Formats added to `Validator.prototype.customFormats` do not affect previously instantiated
-Validators.  This is to prevent validator instances from being altered once created.
-It is conceivable that multiple validators may be created to handle multiple schemas
-with different formats in a program.
-* Formats added to `validator.customFormats` affect only that Validator instance.
+- Formats added to `Validator.prototype.customFormats` do not affect previously instantiated Validators. This is to prevent validator instances from being altered once created. It is conceivable that multiple validators may be created to handle multiple schemas with different formats in a program.
+- Formats added to `validator.customFormats` affect only that Validator instance.
 
 Here is an example that uses custom formats:
 
@@ -168,30 +164,32 @@ By default, results will be returned in a `ValidatorResult` object with the foll
 
 Each item in `errors` is a `ValidationError` with the following properties:
 
-* path: array. An array of property keys or array offsets, indicating where inside objects or arrays the instance was found.
-* property: string. Describes the property path. Starts with `instance`, and is delimited with a dot (`.`).
-* message: string. A human-readable message for debugging use. Provided in English and subject to change.
-* schema: object. The schema containing the keyword that failed
-* instance: any. The instance that failed
-* name: string. The keyword within the schema that failed.
-* argument: any. Provides information about the keyword that failed.
+* `path`: array. An array of property keys or array offsets, indicating where inside objects or arrays the instance was found.
+* `property`: string. Describes the property path. Starts with `instance`, and is delimited with a dot (`.`).
+* `message`: string. A human-readable message for debugging use. Provided in English and subject to change.
+* `schema`: object. The schema containing the keyword that failed
+* `instance`: any. The instance that failed
+* `name`: string. The keyword within the schema that failed.
+* `argument`: any. Provides information about the keyword that failed.
 
 The validator can be configured to throw in the event of a validation error:
 
 * If the `throwFirst` option is set, the validator will terminate validation at the first encountered error and throw a `ValidatorResultError` object.
-
 * If the `throwAll` option is set, the validator will throw a `ValidatorResultError` object after the entire instance has been validated.
-
 * If the `throwError` option is set, it will throw at the first encountered validation error (like `throwFirst`), but the `ValidationError` object itself will be thrown. Note that, despite the name, this does not inherit from Error like `ValidatorResultError` does.
 
 The `ValidatorResultError` object has the same properties as `ValidatorResult` and additionally inherits from Error.
 
-#### "nestedErrors" option
+#### "nestedErrors" Option
 
 When `oneOf` or `anyOf` validations fail, errors that caused any of the sub-schemas referenced therein to fail are normally suppressed, because it is not necessary to fix all of them. And in the case of `oneOf`, it would itself be an error to fix all of the listed errors.
 
 This behavior may be configured with `options.nestedErrors`. If truthy, it will emit all the errors from the subschemas. This option may be useful when troubleshooting validation errors in complex schemas.
 
-### Custom keywords
+### Custom Keywords
 
-Specify your own JSON Schema keywords with the validator.attributes property.
+Specify your own JSON Schema keywords with the `validator.attributes` property.
+
+## License
+
+MIT License — see [LICENSE](LICENSE).
